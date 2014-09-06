@@ -32,4 +32,6 @@ default['backup']['git_repo'] = nil
 default['backup']['upgrade?'] = false
 
 default['backup']['server']       = {}
+default['backup']['chruby']['ruby_version'] = '2.0.0-p353'
+default['backup']['version_from_chruby?'] = true
 

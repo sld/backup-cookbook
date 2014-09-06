@@ -17,24 +17,14 @@
 # limitations under the License.
 #
 
-if node['backup']['version_from_git?']
-  include_recipe 'gem_specific_install'
-  gem_specific_install "backup" do
-    repository node['backup']['git_repo']
-    revision "master"
-    action :install
-  end
-else
-  gem_package 'backup' do
-    version node['backup']['version'] if node['backup']['version']
-    action :upgrade if node['backup']['upgrade?']
-  end
-end
+include_recipe "chruby::default"
 
-node['backup']['dependencies'].each do |gem, ver|
-  gem_package gem do
-    version ver if ver
-  end
+backup_gems :install do
+  ruby_version node['backup']['chruby']['ruby_version']
+  user node['backup']['user']
+  group node['backup']['group']
+  version node['backup']['version']
+  dependencies node['backup']['dependencies']
 end
 
 %w[ config_path model_path ].each do |dir|
