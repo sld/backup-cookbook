@@ -1,5 +1,21 @@
 # Backup Cookbook Changelog
 
+## v1.3.0: 2014-12-02
+
+* Add support for passing mount options to the Mount resource.
+
+## v1.2.0: 2014-10-23
+
+* Add addl_flags attribute
+
+## v1.1.2: 2014-10-20
+
+* Fix for device_name in mount provider
+
+## v1.1.1: 2014-08-28
+
+* Add support for cron home option
+
 ## v1.1.0: 2014-08-11
 
 * Allow installation of backup gem from a git repository

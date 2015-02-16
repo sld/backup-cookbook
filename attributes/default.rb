@@ -20,7 +20,9 @@
 default['backup']['path']         = '/var/backups' # LEGACY
 default['backup']['config_path']  = '/etc/backup'
 default['backup']['log_path']     = '/var/log'
+default['backup']['addl_flags']   = ''
 default['backup']['model_path']   = "#{node['backup']['config_path']}/models"
+default['backup']['mount_options'] = []
 
 default['backup']['user']         = 'root'
 default['backup']['group']        = 'root'
@@ -34,4 +36,3 @@ default['backup']['upgrade?'] = false
 default['backup']['server']       = {}
 default['backup']['chruby']['ruby_version'] = '2.0.0-p353'
 default['backup']['version_from_chruby?'] = true
-

@@ -17,6 +17,7 @@ action :enable do
     mount new_resource.path do
       fstype 'nfs'
       device device_name
+      options node['backup']['mount_options']
       action [:mount, :enable]
     end
   end
@@ -33,8 +34,6 @@ action :disable do
     action :delete
   end
 end
-
-private
 
 def device_name
   "#{node['backup']['server']['address']}:/#{node['backup']['server']['root_path']}/#{new_resource.remote_path}"
